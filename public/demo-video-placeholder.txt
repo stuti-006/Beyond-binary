@@ -1,0 +1,9 @@
+This file is a placeholder.
+
+Record a screen capture of Panel 3 (the Vendor Failure Simulator) and
+save it as:
+
+    public/demo-video.mp4
+
+Once that file exists, delete this placeholder. See the "Demo Video"
+section of the root README.md for details.

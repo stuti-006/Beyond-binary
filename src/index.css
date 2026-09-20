@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #080b0f;
+    color: #f0f4f8;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: rgba(232, 89, 12, 0.4);
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080b0f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #212836;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #303848;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid #e8590c;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-sm px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider;
+  }
+  .badge-build {
+    @apply badge bg-build-dim text-build border border-build-border shadow-[0_0_10px_rgba(232,89,12,0.2)];
+  }
+  .badge-partner {
+    @apply badge bg-partner-dim text-partner border border-partner-border shadow-[0_0_10px_rgba(25,113,194,0.2)];
+  }
+  .badge-hybrid {
+    @apply badge bg-hybrid-dim text-hybrid border border-hybrid-border shadow-[0_0_10px_rgba(47,158,68,0.2)];
+  }
+
+  /* Core floating panels */
+  .panel {
+    @apply rounded-xl border border-base-border bg-base-card shadow-2xl shadow-black/60 transition-all duration-200;
+  }
+
+  /* Console lines with larger, confident monospace text */
+  .console-line {
+    @apply flex flex-wrap items-center gap-x-3 border-b border-base-border/50 py-2 font-mono text-xs sm:text-[13.5px] leading-relaxed last:border-b-0;
+  }
+}
