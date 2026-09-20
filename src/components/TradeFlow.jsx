@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import { tradeFlowSteps, tradeFlowSummary, tradeOrder, getComponent } from '../data/components.js'
+import { tradeFlowSteps, tradeFlowSummary, tradeOrder, tradeFlowMessage } from '../data/tradeFlow.js'
+import { tagMeta } from '../data/theme.js'
 
 const STEP_DELAY_MS = 650
 
-const tagStyles = {
-  'OUR CODE': { text: 'text-build', chip: 'bg-build-dim border-build-border text-build shadow-[0_0_8px_rgba(232,89,12,0.2)]' },
-  'VENDOR API': { text: 'text-partner', chip: 'bg-partner-dim border-partner-border text-partner shadow-[0_0_8px_rgba(25,113,194,0.2)]' },
-  HYBRID: { text: 'text-hybrid', chip: 'bg-hybrid-dim border-hybrid-border text-hybrid shadow-[0_0_8px_rgba(47,158,68,0.2)]' },
+const stepTagLabels = {
+  VENDOR: 'PARTNER API',
+  CORE: 'OUR CODE',
+  CONTROL: 'HYBRID CONTROL',
 }
 
 function formatClock(cumulativeMs) {
@@ -68,6 +69,9 @@ export default function TradeFlow() {
           <p className="mt-1 text-xs sm:text-sm font-mono text-base-dim">
             ORDER PARAMS :: <span className="text-white font-bold">{tradeOrder.notional} {tradeOrder.side} {tradeOrder.market}</span>, <span className="text-build font-bold">{tradeOrder.leverage}</span>
           </p>
+          <p className="mt-1.5 font-mono text-[11px] leading-relaxed text-base-dim">
+            Every partner hop carries an ownership label. <span className="font-bold text-white">{tradeFlowMessage}</span>
+          </p>
         </div>
 
         <div className="flex gap-2">
@@ -91,13 +95,12 @@ export default function TradeFlow() {
         </div>
       </div>
 
-      {/* Execution Stepper */}
       <div className="mt-6 overflow-x-auto pb-2">
         <ol className="flex items-center gap-2 min-w-max">
           {tradeFlowSteps.map((step, i) => {
             const active = i < visibleCount
             const isCurrent = i === visibleCount - 1 && status === 'running'
-            const styles = tagStyles[step.tag]
+            const styles = tagMeta[step.tag]
             return (
               <li key={step.id} className="flex shrink-0 items-center gap-2">
                 <div
@@ -124,7 +127,6 @@ export default function TradeFlow() {
         </ol>
       </div>
 
-      {/* Recessed Terminal Console Window */}
       <div
         className="mt-5 min-h-[10rem] rounded-xl border border-base-border bg-[#05070a] p-4 font-mono shadow-inner"
         role="log"
@@ -141,8 +143,7 @@ export default function TradeFlow() {
           </p>
         )}
         {tradeFlowSteps.slice(0, visibleCount).map((step, i) => {
-          const styles = tagStyles[step.tag]
-          const component = getComponent(step.componentId)
+          const styles = tagMeta[step.tag]
           return (
             <div key={step.id} className="console-line animate-fade-slide-up">
               <span className="text-base-dim font-bold text-[11.5px]">{formatClock(cumulativeAt[i])}</span>
@@ -152,29 +153,44 @@ export default function TradeFlow() {
                 {step.txHash ? <span className="text-build font-bold ml-1">[tx: {step.txHash}]</span> : ''}
               </span>
               <span className={`rounded border px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider ${styles.chip}`}>
-                {step.tag} → {step.detail}
+                {stepTagLabels[step.tag]} → {step.detail}
               </span>
               <span className="ml-auto font-bold text-white bg-base-panel px-2 py-0.5 rounded border border-base-border text-[11.5px]">
                 {step.latencyMs}ms
               </span>
-              <span className="text-hybrid text-sm" aria-hidden="true">✅</span>
-              <span className="sr-only">completed via {component.name}</span>
+              <span className="text-hybrid text-xs" aria-hidden="true">✅</span>
+              <span className="sr-only">{step.ownership}</span>
             </div>
           )
         })}
+        {visibleCount > 0 && tradeFlowSteps.slice(0, visibleCount).length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5 border-t border-base-border/40 pt-3">
+            {tradeFlowSteps.slice(0, visibleCount).map((step) => (
+              <span
+                key={step.id}
+                className={`rounded border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${tagMeta[step.tag].chip}`}
+              >
+                {step.ownership}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Trade Summary */}
       {status === 'done' && (
-        <div className="animate-fade-slide-up mt-4 rounded-xl border-2 border-hybrid-border bg-gradient-to-r from-[#0b1b13] to-[#0d1117] p-4 sm:p-5 shadow-[0_0_20px_rgba(47,158,68,0.2)]">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">🎉</span>
-            <p className="font-display text-base font-bold text-white">{tradeFlowSummary.headline}</p>
+        <div className="animate-fade-slide-up mt-4 space-y-3">
+          <div className="rounded-xl border-2 border-hybrid-border bg-gradient-to-r from-[#0b1b13] to-[#0d1117] p-4 sm:p-5 shadow-[0_0_20px_rgba(47,158,68,0.2)]">
+            <div className="flex items-center gap-2">
+              <span className="text-lg" aria-hidden="true">🎉</span>
+              <p className="font-display text-base font-bold text-white">{tradeFlowSummary.headline}</p>
+            </div>
+            <p className="mt-1 font-mono text-xs sm:text-sm text-base-dim">{tradeFlowSummary.subline}</p>
           </div>
-          <p className="mt-1 font-mono text-xs sm:text-sm text-base-dim">{tradeFlowSummary.subline}</p>
+          <div className="rounded-xl border border-build-border/60 bg-build-dim/60 p-4 font-mono text-center">
+            <p className="font-display text-sm font-extrabold tracking-tight text-white">{tradeFlowMessage}</p>
+          </div>
         </div>
       )}
     </section>
   )
 }
-

@@ -1,0 +1,38 @@
+export const roadmapPhases = [
+  {
+    id: 'r1',
+    months: 'MONTHS 0–3',
+    title: 'LAUNCH FAST',
+    color: 'build',
+    partner: ['KYC / AML', 'UPI / banking rails', 'Market data feeds'],
+    build: ['Core trading logic', 'Adapter / control layer', 'Monitoring', 'Security controls'],
+    note: 'Buy commodity rails now to compress time-to-market while the ownership layer is built.',
+  },
+  {
+    id: 'r2',
+    months: 'MONTHS 4–6',
+    title: 'OWN THE RISK',
+    color: 'hybrid',
+    partner: [],
+    build: ['Risk controls', 'Failure handling', 'Monitoring depth', 'Incident response', 'Vendor health monitoring'],
+    note: 'The risk surface becomes a first-class product feature, not a vendor responsibility.',
+  },
+  {
+    id: 'r3',
+    months: 'MONTHS 7–9',
+    title: 'REDUCE DEPENDENCY',
+    color: 'partner',
+    partner: ['Secondary providers', 'Failover routes', 'Data portability', 'Vendor switching plans', 'SLA review'],
+    build: [],
+    note: 'Every critical dependency gets a real exit path before it is needed.',
+  },
+  {
+    id: 'r4',
+    months: 'MONTHS 10–12',
+    title: 'OPTIMIZE THE MOAT',
+    color: 'build',
+    partner: [],
+    build: ['Vendor economics', 'Latency', 'Reliability', 'Engineering capability', 'Strategic differentiation', 'Switching cost'],
+    note: 'Decide whether any component should move: PARTNER → HYBRID, or HYBRID → BUILD.',
+  },
+]

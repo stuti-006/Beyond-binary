@@ -17,12 +17,12 @@ export default function Header() {
               MochaTrade
             </span>
             <span className="hidden font-mono text-xs font-semibold tracking-wider text-build sm:inline">
-              [HYBRID PROTOTYPE]
+              [ACMS26 · TRACK 4 · CONTROL CENTER]
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-4 font-mono text-[11px] font-semibold text-base-dim">
+        <div className="flex items-center gap-3 font-mono text-[11px] font-semibold text-base-dim sm:gap-4">
           {legend.map((item) => (
             <span key={item.label} className="flex items-center gap-1.5">
               <span className={`h-2 w-2 rounded-full ${item.dotClass}`} aria-hidden="true" />
