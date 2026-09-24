@@ -44,8 +44,8 @@ export default function ComponentDetailModal({ component, onClose }) {
       aria-modal="true"
       aria-label={`${component.name} — decision file`}
     >
-      <div className="animate-fade-slide-up max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-2xl border border-base-border bg-[#0a0e14] shadow-2xl shadow-black/90 ring-1 ring-white/10 sm:rounded-2xl">
-        <div className={`sticky top-0 z-10 border-b border-base-border bg-[#0a0e14]/95 px-5 py-4 backdrop-blur-md sm:px-7`}>
+      <div className="animate-fade-slide-up max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-t-2xl border border-base-border bg-white shadow-2xl shadow-slate-900/15 ring-1 ring-white/70 sm:rounded-2xl">
+        <div className={`sticky top-0 z-10 border-b border-base-border bg-white/95 px-5 py-4 backdrop-blur-md sm:px-7`}>
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="flex flex-wrap items-center gap-2">

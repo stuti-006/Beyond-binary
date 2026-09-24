@@ -6,10 +6,10 @@ const legend = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-base-border bg-[#080b0f]/95 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-base-border/80 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-7 w-7 items-center justify-center rounded border border-build/40 bg-build-dim font-mono text-sm font-bold text-build shadow-[0_0_12px_rgba(232,89,12,0.3)]">
+          <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-build/30 bg-build-dim font-mono text-sm font-bold text-build shadow-glow-build">
             ☕
           </div>
           <div className="flex items-baseline gap-2.5">
@@ -22,7 +22,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3 font-mono text-[11px] font-semibold text-base-dim sm:gap-4">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[10px] font-semibold text-base-dim sm:gap-4">
           {legend.map((item) => (
             <span key={item.label} className="flex items-center gap-1.5">
               <span className={`h-2 w-2 rounded-full ${item.dotClass}`} aria-hidden="true" />

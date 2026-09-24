@@ -78,7 +78,7 @@ export default function JudgeMode({ onClose }) {
       aria-modal="true"
       aria-label="Judge mode — 60 second walkthrough"
     >
-      <div className="animate-fade-slide-up relative flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-base-border bg-[#0a0e14] shadow-2xl shadow-black/90 ring-1 ring-white/10">
+      <div className="animate-fade-slide-up relative flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-base-border bg-white shadow-2xl shadow-slate-900/15 ring-1 ring-white/70">
         <div className="flex items-center justify-between border-b border-base-border bg-base-card/60 px-5 py-3">
           <div className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider text-base-dim">
             <span className="text-base" aria-hidden="true">⚖️</span>

@@ -13,16 +13,16 @@ export default function SidePanel({ pages, active, onNavigate }) {
 
   return (
     <aside
-      className="fixed inset-y-0 left-0 z-50 hidden w-60 flex-col border-r border-base-border/70 bg-[#080b0f] lg:flex"
+      className="fixed inset-y-0 left-0 z-50 hidden w-60 flex-col border-r border-base-border/80 bg-white lg:flex"
       aria-label="Primary navigation"
     >
       {/* Brand block */}
       <div className="flex items-center gap-2.5 border-b border-base-border/70 px-4 py-4">
-        <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-build-border/50 bg-build-dim font-mono text-sm font-bold text-build shadow-[0_0_12px_rgba(232,89,12,0.3)]">
+        <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-build-border/50 bg-build-dim font-mono text-sm font-bold text-build shadow-glow-build">
           ☕
         </div>
         <div className="leading-tight">
-          <p className="font-display text-sm font-bold tracking-tight text-white">MochaTrade</p>
+          <p className="font-display text-sm font-bold tracking-tight text-base-text">MochaTrade</p>
           <p className="font-mono text-[9px] font-semibold uppercase tracking-widest text-base-dim">
             Own the Risk
           </p>
@@ -48,7 +48,7 @@ export default function SidePanel({ pages, active, onNavigate }) {
                     aria-current={isActive ? 'page' : undefined}
                     className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left font-mono text-[11px] font-semibold transition ${
                       isActive
-                        ? `${meta.dim} text-white`
+                        ? `${meta.dim} text-base-text shadow-sm`
                         : 'text-base-dim hover:bg-base-panel/60 hover:text-base-text'
                     }`}
                   >
@@ -71,7 +71,7 @@ export default function SidePanel({ pages, active, onNavigate }) {
       <div className="border-t border-base-border/70 px-4 py-3">
         <div className="flex items-center gap-2 font-mono text-[10px]">
           <span className="h-2 w-2 rounded-full bg-hybrid animate-pulse" aria-hidden="true" />
-          <span className="font-bold uppercase tracking-wider text-white">Core :: Live</span>
+          <span className="font-bold uppercase tracking-wider text-base-text">Core :: Live</span>
         </div>
         <p className="mt-1.5 font-mono text-[9px] leading-relaxed text-base-dim">
           Build the Moat. Rent the Plumbing.
@@ -84,7 +84,7 @@ export default function SidePanel({ pages, active, onNavigate }) {
 export function MobileNav({ pages, active, onNavigate }) {
   return (
     <nav
-      className="lg:hidden overflow-x-auto whitespace-nowrap border-b border-base-border/70 bg-[#080b0f]/95 px-2 py-1.5 scrollbar-none"
+      className="lg:hidden overflow-x-auto whitespace-nowrap border-b border-base-border/80 bg-white/95 px-2 py-2 scrollbar-none"
       aria-label="Sections"
     >
       <div className="flex items-center gap-0.5">

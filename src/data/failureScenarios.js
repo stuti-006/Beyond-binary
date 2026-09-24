@@ -1,7 +1,7 @@
 export const failureScenarios = [
   {
     id: 'kyc-timeout',
-    buttonLabel: 'KYC PROVIDER TIMEOUT',
+    buttonLabel: 'KYC VENDOR TIMEOUT',
     target: 'Identity verification vendor stops responding.',
     timeline: [
       { tag: 'VENDOR', text: 'KYC request → vendor timeout', note: 'no response after retries', status: 'error' },
@@ -33,8 +33,8 @@ export const failureScenarios = [
   },
   {
     id: 'feed-failure',
-    buttonLabel: 'MARKET DATA FEED FAILURE',
-    target: 'Primary price feed (Feed A) goes down.',
+    buttonLabel: 'PRIMARY ORACLE OUTAGE',
+    target: 'Primary oracle (Feed A) goes down.',
     timeline: [
       { tag: 'VENDOR', text: 'Feed A → DOWN', note: 'no fresh quotes delivered', status: 'error' },
       { tag: 'CONTROL', text: 'Adapter detects staleness', note: 'freshness threshold crossed', status: 'warn' },
@@ -70,8 +70,8 @@ export const failureScenarios = [
   },
   {
     id: 'upi-outage',
-    buttonLabel: 'UPI / BANKING OUTAGE',
-    target: 'Deposit rail (UPI) unreachable.',
+    buttonLabel: 'PAYMENT RAIL LATENCY',
+    target: 'Payment rail (UPI) becomes slow or unreachable.',
     timeline: [
       { tag: 'VENDOR', text: 'UPI rail unreachable', note: 'deposit cannot confirm', status: 'error' },
       { tag: 'CONTROL', text: 'Deposit → DELAYED', note: 'queued for retry / reconciliation', status: 'warn' },

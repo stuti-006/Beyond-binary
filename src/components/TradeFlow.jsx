@@ -128,7 +128,7 @@ export default function TradeFlow() {
       </div>
 
       <div
-        className="mt-5 min-h-[10rem] rounded-xl border border-base-border bg-[#05070a] p-4 font-mono shadow-inner"
+        className="mt-5 min-h-[10rem] rounded-2xl border border-base-border bg-[#f8fafc] p-4 font-mono shadow-inner"
         role="log"
         aria-live="polite"
       >

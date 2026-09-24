@@ -77,7 +77,7 @@ export default function FailureSimulator() {
   return (
     <section
       aria-labelledby="failure-sim-heading"
-      className="relative overflow-hidden rounded-2xl border-2 border-build bg-gradient-to-b from-[#180f0a] via-[#0d1117] to-[#080b0f] p-5 sm:p-7 shadow-[0_0_40px_rgba(232,89,12,0.22)]"
+      className="relative overflow-hidden rounded-3xl border border-build-border/70 bg-gradient-to-br from-white via-white to-[#fff7f1] p-5 shadow-[0_22px_55px_-28px_rgba(213,107,46,0.38)] sm:p-7"
     >
       <div className="absolute right-0 top-0 h-16 w-16 overflow-hidden pointer-events-none">
         <div className="absolute right-[-24px] top-[12px] w-28 rotate-45 bg-build py-0.5 text-center font-mono text-[9px] font-bold uppercase tracking-widest text-black shadow-md">
@@ -88,7 +88,7 @@ export default function FailureSimulator() {
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-build-border/50 pb-4">
         <div>
           <div className="flex items-center gap-2">
-            <h2 id="failure-sim-heading" className="font-display text-xl font-extrabold tracking-tight text-white">
+            <h2 id="failure-sim-heading" className="font-display text-xl font-extrabold tracking-tight text-base-text">
               Vendor Failure Simulator
             </h2>
             <span className="badge-build">DESIGN FOR FAILURE</span>
@@ -111,7 +111,7 @@ export default function FailureSimulator() {
               disabled={status === 'running'}
               className={`group relative flex flex-col items-start rounded-xl border p-4 text-left font-mono transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 ${
                 isSelected
-                  ? 'border-build bg-build-dim text-white shadow-glow-build scale-[1.02]'
+                  ? 'border-build bg-build-dim text-base-text shadow-glow-build scale-[1.02]'
                   : 'border-base-border bg-base-panel text-base-text hover:border-build-border hover:bg-build-dim/40'
               }`}
             >
@@ -136,12 +136,12 @@ export default function FailureSimulator() {
       {scenario && (
         <>
           <div
-            className="mt-5 min-h-[11rem] rounded-xl border border-base-border bg-[#05070a] p-4 font-mono shadow-inner"
+            className="mt-5 min-h-[11rem] rounded-2xl border border-base-border bg-[#f8fafc] p-4 font-mono shadow-inner"
             role="log"
             aria-live="polite"
           >
             <div className="mb-3 flex items-center justify-between border-b border-base-border/50 pb-2 text-[11px]">
-              <span className="font-bold text-build">FAULT INJECTION STREAM :: {scenario.buttonLabel}</span>
+              <span className="font-bold text-build">ACTIVITY STREAM :: {scenario.buttonLabel}</span>
               <span className="text-base-dim">ADAPTER PROTOCOL ACTIVE</span>
             </div>
 

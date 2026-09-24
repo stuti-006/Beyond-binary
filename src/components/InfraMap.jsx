@@ -67,14 +67,14 @@ export default function InfraMap() {
 
   return (
     <section aria-labelledby="infra-map-heading" className="space-y-6">
-      <div className="relative overflow-hidden rounded-2xl border border-build-border/50 bg-gradient-to-b from-[#141a24] via-[#0d1117] to-[#080b0f] p-5 sm:p-8 shadow-2xl shadow-black/80">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f283815_1px,transparent_1px),linear-gradient(to_bottom,#1f283815_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
+      <div className="relative overflow-hidden rounded-3xl border border-partner-border/40 bg-gradient-to-br from-white via-white to-[#eef3ff] p-5 shadow-[0_24px_60px_-30px_rgba(65,105,184,0.42)] sm:p-8">
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#dfe5ef55_1px,transparent_1px),linear-gradient(to_bottom,#dfe5ef55_1px,transparent_1px)] bg-[size:24px_24px]" />
 
         <div className="mb-5 flex flex-wrap items-center justify-between gap-2 border-b border-base-border/70 pb-3 font-mono text-xs">
-          <div className="flex items-center gap-2 text-build">
+          <div className="flex items-center gap-2 text-partner">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-build opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-build"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-partner opacity-40"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-partner"></span>
             </span>
             <span className="font-bold uppercase tracking-wider">STRATEGY CONTROL CENTER</span>
           </div>
@@ -103,16 +103,35 @@ export default function InfraMap() {
                 MarketSphere '26 · T4
               </span>
             </div>
-            <p className="mt-2 font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-build via-amber-200 to-white">
+            <p className="mt-2 font-display text-2xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-build via-partner to-hybrid sm:text-3xl">
               Own the Risk. Rent the Plumbing.
             </p>
             <p className="mt-2 max-w-2xl text-xs sm:text-sm leading-relaxed text-base-dim font-medium">
               BUILD WHAT CREATES THE MOAT. PARTNER WHAT IS SPECIALIZED. HYBRIDIZE CRITICAL DEPENDENCIES.
               CONTROL THE INTERFACES. OWN THE RISK. DESIGN FOR FAILURE.
             </p>
+            <div className="mt-7 grid max-w-3xl grid-cols-1 items-center gap-2 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:gap-3" aria-label="Build, adapter, and partner architecture">
+              <div className="rounded-2xl border border-build-border/60 bg-white/85 p-3 shadow-sm">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-build">01 · BUILD</span>
+                <p className="mt-1 font-display text-sm font-bold text-base-text">Risk engine</p>
+                <p className="mt-1 text-[11px] leading-snug text-base-dim">The moat we own</p>
+              </div>
+              <span className="text-center font-mono text-xs font-bold text-base-muted" aria-hidden="true">→</span>
+              <div className="rounded-2xl border border-hybrid-border/60 bg-hybrid-dim/60 p-3 shadow-sm">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-hybrid">02 · ADAPTER</span>
+                <p className="mt-1 font-display text-sm font-bold text-base-text">Control layer</p>
+                <p className="mt-1 text-[11px] leading-snug text-base-dim">Failure becomes policy</p>
+              </div>
+              <span className="text-center font-mono text-xs font-bold text-base-muted" aria-hidden="true">→</span>
+              <div className="rounded-2xl border border-partner-border/60 bg-partner-dim/60 p-3 shadow-sm">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-partner">03 · PARTNER</span>
+                <p className="mt-1 font-display text-sm font-bold text-base-text">Specialist rails</p>
+                <p className="mt-1 text-[11px] leading-snug text-base-dim">Plumbing we rent</p>
+              </div>
+            </div>
           </div>
 
-          <div className="shrink-0 flex items-center gap-3 font-mono text-xs bg-base-panel/90 border border-base-border rounded-xl p-3 shadow-inner">
+          <div className="shrink-0 flex items-center gap-3 rounded-2xl border border-base-border bg-white/80 p-3 font-mono text-xs shadow-sm">
             <div className="flex flex-col">
               <span className="text-[10px] text-base-dim uppercase tracking-wider font-semibold">Decision Surface</span>
               <span className="font-bold text-build text-sm">5 COMPONENTS</span>

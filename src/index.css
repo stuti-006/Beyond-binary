@@ -14,8 +14,9 @@
   body {
     font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
-    background-color: #080b0f;
-    color: #f0f4f8;
+    background-color: #f5f7fb;
+    color: #172033;
+    background-image: radial-gradient(circle at 80% -10%, rgba(65, 105, 184, 0.08), transparent 32rem), radial-gradient(circle at 10% 20%, rgba(213, 107, 46, 0.05), transparent 28rem);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -24,8 +25,8 @@
   }
 
   ::selection {
-    background: rgba(232, 89, 12, 0.4);
-    color: #ffffff;
+    background: rgba(65, 105, 184, 0.22);
+    color: #172033;
   }
 
   ::-webkit-scrollbar {
@@ -33,20 +34,20 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #080b0f;
+    background: #eef2f8;
   }
   ::-webkit-scrollbar-thumb {
-    background: #212836;
+    background: #c5cfdf;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #303848;
+    background: #aab7cc;
   }
 
   button:focus-visible,
   a:focus-visible,
   [tabindex]:focus-visible {
-    outline: 2px solid #e8590c;
+    outline: 2px solid #4169b8;
     outline-offset: 2px;
   }
 
@@ -78,11 +79,17 @@
 
   /* Core floating panels */
   .panel {
-    @apply rounded-xl border border-base-border bg-base-card shadow-2xl shadow-black/60 transition-all duration-200;
+    @apply rounded-2xl border border-base-border bg-base-card shadow-[0_14px_40px_-28px_rgba(23,32,51,0.55)] transition-all duration-200;
   }
 
   /* Console lines with larger, confident monospace text */
   .console-line {
     @apply flex flex-wrap items-center gap-x-3 border-b border-base-border/50 py-2 font-mono text-xs sm:text-[13.5px] leading-relaxed last:border-b-0;
   }
+}
+
+.text-white { color: #172033 !important; }
+.bg-build.text-white, .bg-partner.text-white, .bg-hybrid.text-white,
+.bg-build-dim.text-white, .bg-partner-dim.text-white, .bg-hybrid-dim.text-white {
+  color: #ffffff !important;
 }

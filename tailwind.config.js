@@ -5,32 +5,32 @@ export default {
     extend: {
       colors: {
         base: {
-          bg: '#080b0f',       // Darker base depth layer behind floating panels
-          card: '#0d1117',     // Panel card background
-          panel: '#121720',    // Inner container fill
-          surface: '#161b22',  // Surface elements
-          border: '#212836',   // High-precision border
-          text: '#f0f4f8',     // High-legibility text
-          dim: '#8b949e',      // Subdued text
-          muted: '#484f58',    // Muted text
+          bg: '#f5f7fb',
+          card: '#ffffff',
+          panel: '#f7f9fc',
+          surface: '#eef2f8',
+          border: '#dfe5ef',
+          text: '#172033',
+          dim: '#61708a',
+          muted: '#94a0b5',
         },
         build: {
-          DEFAULT: '#e8590c',
-          glow: 'rgba(232, 89, 12, 0.45)',
-          dim: 'rgba(232, 89, 12, 0.12)',
-          border: 'rgba(232, 89, 12, 0.45)',
+          DEFAULT: '#d56b2e',
+          glow: 'rgba(213, 107, 46, 0.24)',
+          dim: 'rgba(213, 107, 46, 0.10)',
+          border: 'rgba(213, 107, 46, 0.35)',
         },
         partner: {
-          DEFAULT: '#1971c2',
-          glow: 'rgba(25, 113, 194, 0.45)',
-          dim: 'rgba(25, 113, 194, 0.12)',
-          border: 'rgba(25, 113, 194, 0.45)',
+          DEFAULT: '#4169b8',
+          glow: 'rgba(65, 105, 184, 0.22)',
+          dim: 'rgba(65, 105, 184, 0.10)',
+          border: 'rgba(65, 105, 184, 0.32)',
         },
         hybrid: {
-          DEFAULT: '#2f9e44',
-          glow: 'rgba(47, 158, 68, 0.45)',
-          dim: 'rgba(47, 158, 68, 0.12)',
-          border: 'rgba(47, 158, 68, 0.45)',
+          DEFAULT: '#2e8b72',
+          glow: 'rgba(46, 139, 114, 0.22)',
+          dim: 'rgba(46, 139, 114, 0.10)',
+          border: 'rgba(46, 139, 114, 0.32)',
         },
       },
       fontFamily: {
@@ -39,10 +39,10 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       boxShadow: {
-        'glow-build': '0 0 20px -2px rgba(232, 89, 12, 0.5), 0 0 8px 0 rgba(232, 89, 12, 0.3)',
-        'glow-partner': '0 0 20px -2px rgba(25, 113, 194, 0.5), 0 0 8px 0 rgba(25, 113, 194, 0.3)',
-        'glow-hybrid': '0 0 20px -2px rgba(47, 158, 68, 0.5), 0 0 8px 0 rgba(47, 158, 68, 0.3)',
-        'terminal': '0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.05)',
+        'glow-build': '0 12px 28px -14px rgba(213, 107, 46, 0.45)',
+        'glow-partner': '0 12px 28px -14px rgba(65, 105, 184, 0.4)',
+        'glow-hybrid': '0 12px 28px -14px rgba(46, 139, 114, 0.4)',
+        'terminal': '0 18px 40px -24px rgba(23, 32, 51, 0.25)',
       },
       keyframes: {
         busPulse: {

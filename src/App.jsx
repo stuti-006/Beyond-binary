@@ -114,18 +114,18 @@ export default function App() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-base-bg text-base-text">
+    <div className="min-h-screen bg-base-bg text-base-text">
       <div className="flex min-h-screen">
         <SidePanel pages={pages} active={pageId} onNavigate={navigate} />
 
-        <div className="flex min-h-screen min-w-0 flex-1 flex-col md:pl-64">
+        <div className="flex min-h-screen min-w-0 flex-1 flex-col lg:pl-60">
           <Header />
           <MobileNav pages={pages} active={pageId} onNavigate={navigate} />
 
           <main className="flex-1 overflow-x-hidden">
             <div
               key={pageId}
-              className={`mx-auto w-full max-w-5xl px-4 py-6 sm:px-8 sm:py-8 transition-opacity duration-300 ${
+                className={`mx-auto w-full max-w-6xl px-4 py-6 sm:px-8 sm:py-10 transition-opacity duration-300 ${
                 ready ? 'animate-fade-slide-up' : 'opacity-0'
               }`}
             >
