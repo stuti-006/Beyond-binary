@@ -8,6 +8,7 @@ import FailureSimulator from './components/FailureSimulator.jsx'
 import ResponsibilityMatrix from './components/ResponsibilityMatrix.jsx'
 import PartnerScorecard from './components/PartnerScorecard.jsx'
 import StrategySimulator from './components/StrategySimulator.jsx'
+import ScoringMatrix from './components/ScoringMatrix.jsx'
 import FinalArchitecture from './components/FinalArchitecture.jsx'
 import RoadmapStrip from './components/RoadmapStrip.jsx'
 
@@ -27,6 +28,14 @@ const pages = [
     icon: '🔌',
     tone: 'hybrid',
     component: ControlArchitecture,
+  },
+  {
+    id: 'scoring-matrix',
+    group: 'STRATEGY',
+    label: 'Scoring Matrix',
+    icon: '\u2696\ufe0f',
+    tone: 'hybrid',
+    component: ScoringMatrix,
   },
   {
     id: 'trade-flow',
