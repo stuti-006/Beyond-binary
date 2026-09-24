@@ -168,6 +168,21 @@ export default function FailureSimulator() {
                 { label: 'TRADING PATH', value: 'PAUSED', tone: 'bad' },
               ] : scenario.statusBoard} />
 
+              <div className="rounded-xl border border-base-border bg-base-panel/60 p-3.5">
+                <div className="mb-2 flex items-center justify-between gap-2">
+                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-base-dim">BLAST RADIUS</span>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-base-muted">What remains protected</span>
+                </div>
+                <div className="grid gap-2 sm:grid-cols-3">
+                  {scenario.blastRadius.map((item) => (
+                    <div key={item.label} className={`rounded-md border px-2.5 py-2 ${statusTone[item.tone]}`}>
+                      <p className="font-mono text-[10px] uppercase tracking-wider opacity-80">{item.label}</p>
+                      <p className="mt-0.5 font-mono text-xs font-extrabold">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <div className="flex flex-wrap items-center gap-3">
                 <span className="font-mono text-xs font-bold text-base-dim uppercase tracking-wider">RESULT STATUS ::</span>
                 <div className={`inline-flex rounded-md border px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider ${resultTone[showFailCase ? 'blocked' : scenario.resultTone]}`}>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   defaultCriteria,
   defaultComponents,
@@ -6,6 +6,8 @@ import {
   classify,
   topDrivers,
   decisionReason,
+  BUILD_THRESHOLD,
+  PARTNER_THRESHOLD,
   engineeringTimeEstimate,
 } from '../data/scoringMatrix.js'
 import { decisionMeta } from '../data/theme.js'
@@ -33,9 +35,45 @@ function ScoreDots({ value, onChange }) {
   )
 }
 
+function decisionGate(row) {
+  if (row.decision === 'BUILD') {
+    return `Revisit BUILD if the net score falls below +${BUILD_THRESHOLD.toFixed(2)}.`
+  }
+  if (row.decision === 'PARTNER') {
+    return `Revisit PARTNER if the net score rises above ${PARTNER_THRESHOLD.toFixed(2)}.`
+  }
+  return `Stay HYBRID while the net score remains between ${PARTNER_THRESHOLD.toFixed(2)} and +${BUILD_THRESHOLD.toFixed(2)}.`
+}
+
+function ownershipLabel(decision) {
+  if (decision === 'BUILD') return 'Own decision surface end-to-end'
+  if (decision === 'PARTNER') return 'Own policy and controls; partner execution'
+  return 'Own control layer; partner specialized plumbing'
+}
+
 export default function ScoringMatrix() {
-  const [criteria, setCriteria] = useState(defaultCriteria)
-  const [components, setComponents] = useState(defaultComponents)
+  const [criteria, setCriteria] = useState(() => {
+    try {
+      const saved = window.localStorage.getItem('mochatrade-scoring-scenario')
+      const parsed = saved ? JSON.parse(saved) : null
+      return Array.isArray(parsed?.criteria) ? parsed.criteria : defaultCriteria
+    } catch {
+      return defaultCriteria
+    }
+  })
+  const [components, setComponents] = useState(() => {
+    try {
+      const saved = window.localStorage.getItem('mochatrade-scoring-scenario')
+      const parsed = saved ? JSON.parse(saved) : null
+      return Array.isArray(parsed?.components) ? parsed.components : defaultComponents
+    } catch {
+      return defaultComponents
+    }
+  })
+
+  useEffect(() => {
+    window.localStorage.setItem('mochatrade-scoring-scenario', JSON.stringify({ criteria, components }))
+  }, [criteria, components])
 
   const results = useMemo(
     () =>
@@ -118,6 +156,32 @@ export default function ScoringMatrix() {
         <p className="text-xs text-base-muted">
           Score each cell from 1 (low) to 5 (high). The polarity tells the model whether a high score creates a build case or a partner case.
         </p>
+      </div>
+
+      <div className="mt-5 rounded-xl border border-hybrid-border/70 bg-hybrid-dim/20 p-3.5 sm:p-4">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 className="font-mono text-[11px] font-bold uppercase tracking-wider text-hybrid">Decision Snapshot</h3>
+            <p className="mt-1 text-xs text-base-dim">The current recommendation, ownership boundary, and trigger to revisit it.</p>
+          </div>
+          <span className="font-mono text-[10px] uppercase tracking-wider text-base-muted">Saved locally</span>
+        </div>
+        <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          {results.map((row) => {
+            const meta = decisionMeta[row.decision]
+            return (
+              <div key={row.id} className="rounded-lg border border-base-border bg-base-card/70 p-3">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="truncate text-xs font-bold text-white">{row.name}</span>
+                  <span className={`badge ${meta.badgeClass}`}>{row.decision}</span>
+                </div>
+                <p className="mt-2 font-mono text-[11px] text-base-text">net {row.net >= 0 ? '+' : ''}{row.net.toFixed(2)}</p>
+                <p className="mt-1 text-[10px] leading-snug text-base-dim">{ownershipLabel(row.decision)}</p>
+                <p className="mt-2 border-t border-base-border/60 pt-2 text-[10px] leading-snug text-base-muted">{decisionGate(row)}</p>
+              </div>
+            )
+          })}
+        </div>
       </div>
 
       {/* Criteria / weight controls */}
@@ -255,6 +319,7 @@ export default function ScoringMatrix() {
                         <span className={`badge ${meta.badgeClass}`}>{meta.label}</span>
                         <span className="font-mono text-[10px] text-base-muted">net {row.net >= 0 ? '+' : ''}{row.net.toFixed(2)}</span>
                         <p className="max-w-[13rem] text-[10px] leading-snug text-base-dim">{row.reason}</p>
+                        <p className="max-w-[13rem] text-[10px] leading-snug text-base-muted">{decisionGate(row)}</p>
                         {row.drivers.length > 0 && (
                           <p className="max-w-[11rem] text-[10px] leading-snug text-base-dim">
                             {row.drivers

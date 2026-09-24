@@ -21,7 +21,7 @@ export default function RoadmapStrip() {
             </h2>
             <span className="badge-build">LAUNCH → OPTIMIZE MOAT</span>
           </div>
-          <span className="font-mono text-xs text-base-dim">TARGET :: 3 MONTHS TO LAUNCH</span>
+          <span className="font-mono text-xs text-base-dim">TARGET :: 3 MONTHS TO CONTROLLED ALPHA</span>
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

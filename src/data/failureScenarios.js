@@ -18,6 +18,11 @@ export const failureScenarios = [
     ],
     resultLabel: 'TRADE BLOCKED',
     resultTone: 'blocked',
+    blastRadius: [
+      { label: 'Funds', value: 'Protected', tone: 'ok' },
+      { label: 'New trades', value: 'Blocked', tone: 'bad' },
+      { label: 'Auditability', value: 'Preserved', tone: 'ok' },
+    ],
     message: 'A vendor failure never bypasses compliance.',
     banner: {
       tone: 'blocked',
@@ -45,6 +50,11 @@ export const failureScenarios = [
     ],
     resultLabel: 'CONTINUED SAFE',
     resultTone: 'hybrid',
+    blastRadius: [
+      { label: 'Funds', value: 'Protected', tone: 'ok' },
+      { label: 'New trades', value: 'Continue', tone: 'ok' },
+      { label: 'Price trust', value: 'Validated', tone: 'ok' },
+    ],
     message: 'A single feed going down should never end a session — or silently poison one.',
     banner: {
       tone: 'success',
@@ -77,6 +87,11 @@ export const failureScenarios = [
     ],
     resultLabel: 'DEPOSIT DELAYED — TRADING UNAFFECTED',
     resultTone: 'retry',
+    blastRadius: [
+      { label: 'Funds', value: 'Reconciled', tone: 'warn' },
+      { label: 'New trades', value: 'Unaffected', tone: 'ok' },
+      { label: 'Positions', value: 'Protected', tone: 'ok' },
+    ],
     message: 'Deposits can wait. Open positions cannot be left to fate.',
     banner: {
       tone: 'warn',

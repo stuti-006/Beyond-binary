@@ -21,7 +21,7 @@ Every early-stage trading platform faces an infrastructure dilemma:
 | :--- | :--- | :--- | :--- |
 | **🏗️ Build-All** | ❌ 12–18 Months | ❌ ₹15–20 Cr | 🛡️ High internal control, high overhead |
 | **📦 Rent-All** | ⚡ 1–2 Months | 💰 Low initial capital | ⚠️ Zero resilience — 1 vendor outage destroys user trust |
-| **⚡ MochaTrade Hybrid** | 🚀 **16 Weeks** | 💎 **Fraction of capital** | 🔒 **Max Resilience** (Adapter Bus isolates core risk) |
+| **⚡ MochaTrade Hybrid** | 🚀 **3 Months to Controlled Alpha** | 💎 **Fraction of capital** | 🔒 **Max Resilience** (Adapter Bus isolates core risk) |
 
 ---
 
@@ -64,7 +64,7 @@ The prototype includes a sticky section navigation bar for quick access across t
 1. 🗺️ **Infra Map**: Interactive node layout with cost, build time, and SLA tooltips.
 2. ⚡ **Trade Flow**: Real-time telemetry log tracing trade execution hops.
 3. 💥 **Failure Sim**: Interactive fault injector demonstrating adapter resilience.
-4. 📍 **Roadmap**: 16-week launch timeline & re-evaluation trigger thresholds.
+4. 📍 **Roadmap**: 12-month path from controlled alpha to scale, with re-evaluation gates.
 
 ---
 
