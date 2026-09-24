@@ -103,9 +103,9 @@ export default function StrategySimulator() {
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div className="flex items-center gap-2">
             <span className={`badge ${decisionMeta[result.dominant].badgeClass}`}>{result.dominant}</span>
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-base-dim">DOMINANT LEAN</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400">DOMINANT LEAN</span>
           </div>
-          <p className="font-mono text-[10.5px] text-base-dim">
+          <p className="font-mono text-[10.5px] text-slate-400">
             HIGH ↘ BUILD · LOW ↘ PARTNER · LOW VENDOR CONFIDENCE ↘ HYBRID
           </p>
         </div>
@@ -113,7 +113,7 @@ export default function StrategySimulator() {
         <h3 className="mt-4 font-display text-base sm:text-lg font-extrabold tracking-tight text-white">
           {result.headline.title}
         </h3>
-        <p className="mt-1 max-w-3xl font-sans text-xs sm:text-sm leading-relaxed text-base-dim">
+        <p className="mt-1 max-w-3xl font-sans text-xs sm:text-sm leading-relaxed text-slate-300">
           {result.headline.text}
         </p>
 
@@ -123,22 +123,22 @@ export default function StrategySimulator() {
               <span className={`w-20 shrink-0 rounded border px-1.5 py-0.5 text-center font-mono text-[10px] font-bold uppercase tracking-wider ${bars[a.key].chip}`}>
                 {a.key}
               </span>
-              <div className="h-4 flex-1 overflow-hidden rounded bg-base-panel">
+              <div className="h-4 flex-1 overflow-hidden rounded bg-slate-800">
                 <div
                   className="h-full rounded transition-all duration-500"
                   style={{ width: `${a.value}%`, backgroundColor: bars[a.key].color }}
                 />
               </div>
-              <span className="w-12 shrink-0 text-right font-mono text-xs font-bold text-white">{a.value}%</span>
+              <span className="w-12 shrink-0 text-right font-mono text-xs font-bold text-slate-100">{a.value}%</span>
             </div>
           ))}
         </div>
 
-        <div className="mt-5 rounded-xl border border-base-border bg-base-panel/50 p-4">
+        <div className="mt-5 rounded-xl border border-slate-800 bg-slate-900/80 p-4">
           <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-hybrid">RATIONALES ::</span>
           <ul className="mt-2 space-y-1.5">
             {result.rationale.map((r) => (
-              <li key={r} className="flex items-start gap-2 font-sans text-xs leading-relaxed text-base-text">
+              <li key={r} className="flex items-start gap-2 font-sans text-xs leading-relaxed text-slate-200">
                 <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-hybrid" aria-hidden="true" />
                 <span>{r}</span>
               </li>
@@ -146,6 +146,7 @@ export default function StrategySimulator() {
           </ul>
         </div>
       </div>
+
     </section>
   )
 }

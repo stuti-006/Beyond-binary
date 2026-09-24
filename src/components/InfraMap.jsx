@@ -29,7 +29,7 @@ function DecisionCard({ component, onOpen }) {
         <span className="text-lg" aria-hidden="true">{component.icon}</span>
         <span className={meta.badgeClass}>{meta.label}</span>
       </div>
-      <h3 className="font-display text-[15px] font-bold leading-snug text-base-text group-hover:text-white">
+      <h3 className="font-display text-[15px] font-bold leading-snug text-base-text group-hover:text-build transition-colors">
         {component.name}
       </h3>
       <p className="line-clamp-2 font-sans text-xs leading-relaxed text-base-dim">{component.why}</p>
@@ -96,7 +96,7 @@ export default function InfraMap() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              <h1 className="font-display text-3xl font-extrabold tracking-tight text-base-text sm:text-4xl">
                 MochaTrade
               </h1>
               <span className="rounded border border-build-border bg-build-dim px-2.5 py-0.5 font-mono text-xs font-bold uppercase tracking-wider text-build shadow-[0_0_12px_rgba(232,89,12,0.3)]">

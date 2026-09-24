@@ -87,9 +87,3 @@
     @apply flex flex-wrap items-center gap-x-3 border-b border-base-border/50 py-2 font-mono text-xs sm:text-[13.5px] leading-relaxed last:border-b-0;
   }
 }
-
-.text-white { color: #172033 !important; }
-.bg-build.text-white, .bg-partner.text-white, .bg-hybrid.text-white,
-.bg-build-dim.text-white, .bg-partner-dim.text-white, .bg-hybrid-dim.text-white {
-  color: #ffffff !important;
-}

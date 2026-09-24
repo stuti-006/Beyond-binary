@@ -67,10 +67,10 @@ export default function TradeFlow() {
             <span className="badge-hybrid font-mono">REAL-TIME ROUTING</span>
           </div>
           <p className="mt-1 text-xs sm:text-sm font-mono text-base-dim">
-            ORDER PARAMS :: <span className="text-white font-bold">{tradeOrder.notional} {tradeOrder.side} {tradeOrder.market}</span>, <span className="text-build font-bold">{tradeOrder.leverage}</span>
+            ORDER PARAMS :: <span className="text-base-text font-bold">{tradeOrder.notional} {tradeOrder.side} {tradeOrder.market}</span>, <span className="text-build font-bold">{tradeOrder.leverage}</span>
           </p>
           <p className="mt-1.5 font-mono text-[11px] leading-relaxed text-base-dim">
-            Every partner hop carries an ownership label. <span className="font-bold text-white">{tradeFlowMessage}</span>
+            Every partner hop carries an ownership label. <span className="font-bold text-base-text">{tradeFlowMessage}</span>
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export default function TradeFlow() {
             <button
               type="button"
               onClick={run}
-              className="rounded-lg border border-base-border bg-base-panel px-3.5 py-2 font-mono text-xs font-semibold text-base-text transition hover:bg-base-border/50"
+              className="rounded-lg border border-base-border bg-base-panel px-3.5 py-2 font-mono text-xs font-semibold text-base-text transition hover:bg-base-border/50 cursor-pointer"
             >
               ↺ REPLAY
             </button>
@@ -88,7 +88,7 @@ export default function TradeFlow() {
             type="button"
             onClick={run}
             disabled={status === 'running'}
-            className="rounded-lg bg-build px-4 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-build transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+            className="rounded-lg bg-build px-4 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-build transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
           >
             {status === 'running' ? '⚡ EXECUTING HOPS…' : `PLACE TEST TRADE — ${tradeOrder.notional} ${tradeOrder.side} ${tradeOrder.market}`}
           </button>
@@ -148,14 +148,14 @@ export default function TradeFlow() {
             <div key={step.id} className="console-line animate-fade-slide-up">
               <span className="text-base-dim font-bold text-[11.5px]">{formatClock(cumulativeAt[i])}</span>
               <span className="text-base-dim/50">|</span>
-              <span className="text-white font-semibold">
+              <span className="text-base-text font-semibold">
                 {step.label}
                 {step.txHash ? <span className="text-build font-bold ml-1">[tx: {step.txHash}]</span> : ''}
               </span>
               <span className={`rounded border px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider ${styles.chip}`}>
                 {stepTagLabels[step.tag]} → {step.detail}
               </span>
-              <span className="ml-auto font-bold text-white bg-base-panel px-2 py-0.5 rounded border border-base-border text-[11.5px]">
+              <span className="ml-auto font-bold text-base-text bg-base-panel px-2 py-0.5 rounded border border-base-border text-[11.5px]">
                 {step.latencyMs}ms
               </span>
               <span className="text-hybrid text-xs" aria-hidden="true">✅</span>
@@ -184,13 +184,14 @@ export default function TradeFlow() {
               <span className="text-lg" aria-hidden="true">🎉</span>
               <p className="font-display text-base font-bold text-white">{tradeFlowSummary.headline}</p>
             </div>
-            <p className="mt-1 font-mono text-xs sm:text-sm text-base-dim">{tradeFlowSummary.subline}</p>
+            <p className="mt-1 font-mono text-xs sm:text-sm text-slate-300">{tradeFlowSummary.subline}</p>
           </div>
           <div className="rounded-xl border border-build-border/60 bg-build-dim/60 p-4 font-mono text-center">
-            <p className="font-display text-sm font-extrabold tracking-tight text-white">{tradeFlowMessage}</p>
+            <p className="font-display text-sm font-extrabold tracking-tight text-base-text">{tradeFlowMessage}</p>
           </div>
         </div>
       )}
+
     </section>
   )
 }

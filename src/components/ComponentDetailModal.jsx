@@ -50,7 +50,7 @@ export default function ComponentDetailModal({ component, onClose }) {
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xl" aria-hidden="true">{component.icon}</span>
-                <h3 className="font-display text-base sm:text-lg font-bold tracking-tight text-white">
+                <h3 className="font-display text-base sm:text-lg font-bold tracking-tight text-base-text">
                   {component.name}
                 </h3>
               </div>
@@ -65,7 +65,7 @@ export default function ComponentDetailModal({ component, onClose }) {
               type="button"
               onClick={onClose}
               aria-label="Close decision file"
-              className="shrink-0 rounded-md p-1.5 font-mono text-xs text-base-dim transition hover:bg-base-border hover:text-white"
+              className="shrink-0 rounded-md p-1.5 font-mono text-xs text-base-dim transition hover:bg-base-border hover:text-base-text cursor-pointer"
             >
               ✕ ESC
             </button>

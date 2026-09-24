@@ -20,7 +20,7 @@ function TierBox({ heading, badgeClass, badgeLabel, items, accentClass }) {
       </div>
       <div className="mt-3 flex flex-wrap gap-1.5">
         {items.map((item) => (
-          <span key={item} className="rounded border border-base-border bg-base-panel px-2 py-1 font-mono text-[10.5px] font-semibold text-base-text">
+          <span key={item} className="rounded border border-slate-700 bg-slate-800/80 px-2 py-1 font-mono text-[10.5px] font-semibold text-slate-200">
             {item}
           </span>
         ))}
@@ -63,7 +63,7 @@ function VendorChip({ vendor, state }) {
         <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-base-dim">{stateLabel}</span>
       </div>
       <div className="text-center">
-        <p className="font-display text-sm font-bold text-white">{vendor.name}</p>
+        <p className="font-display text-sm font-bold text-base-text">{vendor.name}</p>
         <p className="font-mono text-[10px] text-base-dim">{vendor.detail}</p>
       </div>
     </div>
@@ -159,7 +159,7 @@ export default function ControlArchitecture() {
           type="button"
           onClick={runSwap}
           disabled={status === 'running'}
-          className="rounded-lg bg-build px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-build transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+          className="rounded-lg bg-build px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-build transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
         >
           {status === 'running' ? '⚡ SWAPPING…' : status === 'done' ? '↺ REPLAY VENDOR SWAP' : '[ SIMULATE VENDOR SWAP ]'}
         </button>
@@ -194,7 +194,7 @@ export default function ControlArchitecture() {
               <p className="font-display text-lg sm:text-xl font-extrabold tracking-tight text-white">
                 {controlMessage}
               </p>
-              <p className="mt-1 font-mono text-xs text-base-dim">
+              <p className="mt-1 font-mono text-xs text-slate-300">
                 A vendor swap is a config change behind the control layer — never a rewrite of the core.
               </p>
             </div>
