@@ -31,7 +31,7 @@ export default function ResponsibilityMatrix() {
           <tbody>
             {responsibilityRows.map((row, i) => (
               <tr key={row.component} className={`align-top ${i % 2 === 1 ? 'bg-base-card/60' : 'bg-base-card'}`}>
-                <td className="border-b border-base-border/50 px-4 py-3 font-bold text-white">
+                <td className="border-b border-base-border/50 px-4 py-3 font-bold">
                   <span
                     className={`badge ${
                       i === 4 ? 'badge-build' : i === 3 ? 'badge-hybrid' : 'badge-partner'
@@ -41,10 +41,10 @@ export default function ResponsibilityMatrix() {
                   </span>
                 </td>
                 <td className="border-b border-base-border/50 px-4 py-3 leading-relaxed text-base-dim">{row.failure}</td>
-                <td className="border-b border-base-border/50 px-4 py-3 leading-relaxed text-partner">{row.vendor}</td>
-                <td className="border-b border-base-border/50 px-4 py-3 leading-relaxed text-build">{row.mocha}</td>
+                <td className="border-b border-base-border/50 px-4 py-3 leading-relaxed text-partner font-semibold">{row.vendor}</td>
+                <td className="border-b border-base-border/50 px-4 py-3 leading-relaxed text-build font-semibold">{row.mocha}</td>
                 <td className="border-b border-base-border/50 px-4 py-3 leading-relaxed text-base-text">{row.impact}</td>
-                <td className="border-b border-base-border/50 px-4 py-3 leading-relaxed text-hybrid">{row.mitigation}</td>
+                <td className="border-b border-base-border/50 px-4 py-3 leading-relaxed text-hybrid font-semibold">{row.mitigation}</td>
               </tr>
             ))}
           </tbody>
@@ -53,8 +53,8 @@ export default function ResponsibilityMatrix() {
 
       <div className="mt-5 space-y-2.5">
         {responsibilityClosing.map((line) => (
-          <div key={line} className="rounded-xl border border-build-border/60 bg-build-dim/60 p-4 text-center">
-            <p className="font-display text-sm sm:text-base font-extrabold tracking-tight text-white">{line}</p>
+          <div key={line} className="rounded-xl border border-build-border/60 bg-gradient-to-r from-build-dim/40 via-white to-build-dim/40 p-4 text-center shadow-sm">
+            <p className="font-display text-sm sm:text-base font-extrabold tracking-tight text-base-text">{line}</p>
           </div>
         ))}
       </div>

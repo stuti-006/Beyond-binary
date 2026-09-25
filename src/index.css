@@ -87,3 +87,10 @@
     @apply flex flex-wrap items-center gap-x-3 border-b border-base-border/50 py-2 font-mono text-xs sm:text-[13.5px] leading-relaxed last:border-b-0;
   }
 }
+
+@layer utilities {
+  .mask-gradient {
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+}

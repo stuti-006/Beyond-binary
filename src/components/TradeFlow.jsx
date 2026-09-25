@@ -179,14 +179,14 @@ export default function TradeFlow() {
 
       {status === 'done' && (
         <div className="animate-fade-slide-up mt-4 space-y-3">
-          <div className="rounded-xl border-2 border-hybrid-border bg-gradient-to-r from-[#0b1b13] to-[#0d1117] p-4 sm:p-5 shadow-[0_0_20px_rgba(47,158,68,0.2)]">
+          <div className="rounded-xl border-2 border-hybrid-border/70 bg-gradient-to-r from-hybrid-dim/40 via-white to-hybrid-dim/40 p-4 sm:p-5 shadow-lg shadow-hybrid/10">
             <div className="flex items-center gap-2">
               <span className="text-lg" aria-hidden="true">🎉</span>
-              <p className="font-display text-base font-bold text-white">{tradeFlowSummary.headline}</p>
+              <p className="font-display text-base font-bold text-base-text">{tradeFlowSummary.headline}</p>
             </div>
-            <p className="mt-1 font-mono text-xs sm:text-sm text-slate-300">{tradeFlowSummary.subline}</p>
+            <p className="mt-1 font-mono text-xs sm:text-sm text-slate-700 font-medium">{tradeFlowSummary.subline}</p>
           </div>
-          <div className="rounded-xl border border-build-border/60 bg-build-dim/60 p-4 font-mono text-center">
+          <div className="rounded-xl border border-build-border/60 bg-build-dim/40 p-4 font-mono text-center">
             <p className="font-display text-sm font-extrabold tracking-tight text-base-text">{tradeFlowMessage}</p>
           </div>
         </div>

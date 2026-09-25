@@ -59,7 +59,7 @@ export default function StrategySimulator() {
             Tune five strategic pressures and watch the Build / Partner / Hybrid mix respond.
           </p>
         </div>
-        <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-amber-300">
+        <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-amber-700">
           ILLUSTRATIVE STRATEGIC MODEL
         </span>
       </div>
@@ -88,32 +88,32 @@ export default function StrategySimulator() {
         <button
           type="button"
           onClick={() => setSubmitted(draft)}
-          className="rounded-lg bg-hybrid px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-hybrid transition hover:brightness-110"
+          className="rounded-lg bg-hybrid px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-hybrid transition hover:brightness-110 cursor-pointer"
         >
           ⏎ RUN STRATEGY MODEL
         </button>
         {dirty && (
-          <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-amber-300 animate-blink">
+          <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-amber-700 animate-blink">
             ↑ INPUTS TUNED — RUN TO COMMIT
           </span>
         )}
       </div>
 
-      <div className="mt-5 rounded-2xl border-2 border-base-border bg-gradient-to-b from-[#141a24] to-[#0d1117] p-4 sm:p-6">
+      <div className="mt-5 rounded-2xl border-2 border-base-border/80 bg-gradient-to-br from-white via-[#f8fafc] to-[#f1f5f9] p-5 sm:p-7 shadow-xl shadow-slate-200/60">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div className="flex items-center gap-2">
             <span className={`badge ${decisionMeta[result.dominant].badgeClass}`}>{result.dominant}</span>
-            <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-400">DOMINANT LEAN</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-wider text-base-dim">DOMINANT LEAN</span>
           </div>
-          <p className="font-mono text-[10.5px] text-slate-400">
+          <p className="font-mono text-[10.5px] font-medium text-base-dim">
             HIGH ↘ BUILD · LOW ↘ PARTNER · LOW VENDOR CONFIDENCE ↘ HYBRID
           </p>
         </div>
 
-        <h3 className="mt-4 font-display text-base sm:text-lg font-extrabold tracking-tight text-white">
+        <h3 className="mt-4 font-display text-base sm:text-lg font-extrabold tracking-tight text-base-text">
           {result.headline.title}
         </h3>
-        <p className="mt-1 max-w-3xl font-sans text-xs sm:text-sm leading-relaxed text-slate-300">
+        <p className="mt-1 max-w-3xl font-sans text-xs sm:text-sm leading-relaxed text-slate-700 font-medium">
           {result.headline.text}
         </p>
 
@@ -123,23 +123,23 @@ export default function StrategySimulator() {
               <span className={`w-20 shrink-0 rounded border px-1.5 py-0.5 text-center font-mono text-[10px] font-bold uppercase tracking-wider ${bars[a.key].chip}`}>
                 {a.key}
               </span>
-              <div className="h-4 flex-1 overflow-hidden rounded bg-slate-800">
+              <div className="h-4 flex-1 overflow-hidden rounded-full bg-slate-200/80 shadow-inner">
                 <div
-                  className="h-full rounded transition-all duration-500"
+                  className="h-full rounded-full transition-all duration-500"
                   style={{ width: `${a.value}%`, backgroundColor: bars[a.key].color }}
                 />
               </div>
-              <span className="w-12 shrink-0 text-right font-mono text-xs font-bold text-slate-100">{a.value}%</span>
+              <span className="w-12 shrink-0 text-right font-mono text-xs font-bold text-base-text">{a.value}%</span>
             </div>
           ))}
         </div>
 
-        <div className="mt-5 rounded-xl border border-slate-800 bg-slate-900/80 p-4">
+        <div className="mt-5 rounded-xl border border-hybrid-border/50 bg-hybrid-dim/30 p-4 sm:p-5 shadow-sm">
           <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-hybrid">RATIONALES ::</span>
           <ul className="mt-2 space-y-1.5">
             {result.rationale.map((r) => (
-              <li key={r} className="flex items-start gap-2 font-sans text-xs leading-relaxed text-slate-200">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-hybrid" aria-hidden="true" />
+              <li key={r} className="flex items-start gap-2 font-sans text-xs sm:text-sm leading-relaxed text-slate-800 font-medium">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-hybrid" aria-hidden="true" />
                 <span>{r}</span>
               </li>
             ))}

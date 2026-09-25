@@ -89,6 +89,8 @@ export default function InfraMap() {
               <span className="text-base-text"><span className="text-base-dim">BTC-PERP</span> $64,280.50 <span className="text-hybrid font-bold">+2.4%</span></span>
               <span className="text-base-text"><span className="text-base-dim">ETH-PERP</span> $3,450.20 <span className="text-hybrid font-bold">+1.8%</span></span>
               <span className="text-base-text"><span className="text-base-dim">SOL-PERP</span> $148.75 <span className="text-red-400 font-bold">-0.5%</span></span>
+              <span className="text-base-text"><span className="text-base-dim">INR/USD</span> 83.92</span>
+              <span className="text-base-text"><span className="text-base-dim">TRUST</span> SELF-CUSTODY</span>
             </div>
           </div>
         </div>

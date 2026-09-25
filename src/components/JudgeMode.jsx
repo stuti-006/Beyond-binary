@@ -88,7 +88,7 @@ export default function JudgeMode({ onClose }) {
             type="button"
             onClick={onClose}
             aria-label="Close judge mode"
-            className="rounded-md p-1.5 font-mono text-xs text-base-dim transition hover:bg-base-border hover:text-white"
+            className="rounded-md p-1.5 font-mono text-xs text-base-dim transition hover:bg-base-border/60 hover:text-base-text cursor-pointer"
           >
             ✕ ESC
           </button>
@@ -100,13 +100,13 @@ export default function JudgeMode({ onClose }) {
           {!finished ? (
             <div className="relative">
               <div className="flex items-center justify-between font-mono text-xs text-base-dim">
-                <span className="tracking-widest">WALKTHROUGH :: {String(step + 1).padStart(2, '0')} / {String(judgeSteps.length).padStart(2, '0')}</span>
-                <span className="text-base-muted">{left}s</span>
+                <span className="tracking-widest font-bold">WALKTHROUGH :: {String(step + 1).padStart(2, '0')} / {String(judgeSteps.length).padStart(2, '0')}</span>
+                <span className="text-base-muted font-bold">{left}s</span>
               </div>
 
               <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-base-panel">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-build via-amber-300 to-hybrid transition-all duration-1000 ease-linear"
+                  className="h-full rounded-full bg-gradient-to-r from-build via-amber-400 to-hybrid transition-all duration-1000 ease-linear"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -115,10 +115,10 @@ export default function JudgeMode({ onClose }) {
                 <span className={`inline-flex items-center rounded-lg border px-4 py-1.5 font-mono text-xs font-extrabold uppercase tracking-widest ${accent[current.accent]}`}>
                   STEP {current.n}
                 </span>
-                <h3 className="mt-5 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+                <h3 className="mt-5 font-display text-3xl font-extrabold tracking-tight text-base-text sm:text-5xl">
                   {current.title}
                 </h3>
-                <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-base-dim sm:text-lg">
+                <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-slate-700 font-medium sm:text-lg">
                   {current.body}
                 </p>
               </div>
@@ -127,7 +127,7 @@ export default function JudgeMode({ onClose }) {
                 <button
                   type="button"
                   onClick={() => go(-1)}
-                  className="rounded-lg border border-base-border bg-base-panel px-4 py-2 font-mono text-xs font-bold text-base-dim transition hover:text-white"
+                  className="rounded-lg border border-base-border bg-base-panel px-4 py-2 font-mono text-xs font-bold text-base-dim transition hover:bg-base-border/50 hover:text-base-text cursor-pointer"
                 >
                   ← PREV
                 </button>
@@ -140,14 +140,14 @@ export default function JudgeMode({ onClose }) {
                       setLeft(judgeStepSeconds)
                     }
                   }}
-                  className="rounded-lg border border-base-border bg-base-panel px-4 py-2 font-mono text-xs font-bold text-base-dim transition hover:text-white"
+                  className="rounded-lg border border-base-border bg-base-panel px-4 py-2 font-mono text-xs font-bold text-base-dim transition hover:bg-base-border/50 hover:text-base-text cursor-pointer"
                 >
                   {playing ? '❚❚ PAUSE' : '▶ PLAY'}
                 </button>
                 <button
                   type="button"
                   onClick={() => go(1)}
-                  className="rounded-lg bg-build px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-build transition hover:brightness-110"
+                  className="rounded-lg bg-build px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-build transition hover:brightness-110 cursor-pointer"
                 >
                   NEXT →
                 </button>
@@ -158,18 +158,18 @@ export default function JudgeMode({ onClose }) {
               <span className="font-mono text-xs font-extrabold uppercase tracking-widest text-hybrid">
                 WALKTHROUGH COMPLETE
               </span>
-              <p className="mt-5 font-display text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-build via-amber-200 to-white sm:text-5xl">
+              <p className="mt-5 font-display text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-build via-amber-600 to-hybrid sm:text-5xl">
                 OWN THE RISK.
                 <br />
                 RENT THE PLUMBING.
               </p>
-              <p className="mt-4 max-w-xl font-mono text-xs leading-relaxed text-base-dim">
+              <p className="mt-4 max-w-xl font-mono text-xs leading-relaxed text-slate-700 font-medium">
                 BUILD WHAT CREATES THE MOAT. PARTNER WHAT IS SPECIALIZED. HYBRIDIZE CRITICAL DEPENDENCIES. CONTROL THE INTERFACES.
               </p>
               <button
                 type="button"
                 onClick={restart}
-                className="mt-8 rounded-lg bg-hybrid px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-hybrid transition hover:brightness-110"
+                className="mt-8 rounded-lg bg-hybrid px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-white shadow-glow-hybrid transition hover:brightness-110 cursor-pointer"
               >
                 ↺ PLAY AGAIN
               </button>

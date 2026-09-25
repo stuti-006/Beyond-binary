@@ -12,6 +12,8 @@ import ScoringMatrix from './components/ScoringMatrix.jsx'
 import FinalArchitecture from './components/FinalArchitecture.jsx'
 import RoadmapStrip from './components/RoadmapStrip.jsx'
 
+import Footer from './components/Footer.jsx'
+
 const pages = [
   {
     id: 'strategy',
@@ -122,15 +124,16 @@ export default function App() {
           <Header />
           <MobileNav pages={pages} active={pageId} onNavigate={navigate} />
 
-          <main className="flex-1 overflow-x-hidden">
+          <main className="flex flex-1 flex-col overflow-x-hidden">
             <div
               key={pageId}
-                className={`mx-auto w-full max-w-6xl px-4 py-6 sm:px-8 sm:py-10 transition-opacity duration-300 ${
+              className={`flex-1 mx-auto w-full max-w-6xl px-4 py-6 sm:px-8 sm:py-10 transition-opacity duration-300 ${
                 ready ? 'animate-fade-slide-up' : 'opacity-0'
               }`}
             >
               <ActivePage />
             </div>
+            <Footer />
           </main>
         </div>
       </div>

@@ -79,8 +79,8 @@ export default function FailureSimulator() {
       aria-labelledby="failure-sim-heading"
       className="relative overflow-hidden rounded-3xl border border-build-border/70 bg-gradient-to-br from-white via-white to-[#fff7f1] p-5 shadow-[0_22px_55px_-28px_rgba(213,107,46,0.38)] sm:p-7"
     >
-      <div className="absolute right-0 top-0 h-16 w-16 overflow-hidden pointer-events-none">
-        <div className="absolute right-[-24px] top-[12px] w-28 rotate-45 bg-build py-0.5 text-center font-mono text-[9px] font-bold uppercase tracking-widest text-black shadow-md">
+      <div className="absolute right-0 top-0 h-24 w-24 overflow-hidden pointer-events-none">
+        <div className="absolute right-[-32px] top-[18px] w-36 rotate-45 bg-build py-0.5 text-center font-mono text-[9px] font-bold uppercase tracking-wider text-black shadow-md">
           FAILURE LAB
         </div>
       </div>
@@ -209,15 +209,15 @@ export default function FailureSimulator() {
               )}
 
               {showFailCase && scenario.confidenceFailure && (
-                <div className="rounded-xl border border-red-500/60 bg-red-950/40 p-4 font-mono shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+                <div className="rounded-xl border-2 border-red-300 bg-red-50 p-4 font-mono shadow-sm">
                   <div className="flex flex-wrap gap-2">
                     {scenario.confidenceFailure.blocks.map((b) => (
-                      <span key={b} className="rounded-md border border-red-500/60 bg-red-950/50 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-red-300">
+                      <span key={b} className="rounded-md border border-red-300 bg-red-100 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-red-800">
                         {b}
                       </span>
                     ))}
                   </div>
-                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-red-200">
+                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-red-900 font-sans">
                     {scenario.confidenceFailure.note}
                   </p>
                 </div>
