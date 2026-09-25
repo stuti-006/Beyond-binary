@@ -8,20 +8,20 @@ const statusIcon = { ok: '✅', warn: '⚠️', error: '❌' }
 
 const bannerTone = {
   success: 'border-hybrid-border bg-hybrid-dim text-hybrid shadow-[0_0_15px_rgba(47,158,68,0.25)]',
-  blocked: 'border-red-500/50 bg-red-950/50 text-red-300 shadow-[0_0_15px_rgba(239,68,68,0.25)]',
-  warn: 'border-amber-500/50 bg-amber-950/50 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.25)]',
+  blocked: 'border-red-300 bg-red-50 text-red-800 shadow-[0_0_15px_rgba(239,68,68,0.18)]',
+  warn: 'border-amber-300 bg-amber-50 text-amber-800 shadow-[0_0_15px_rgba(245,158,11,0.18)]',
 }
 
 const resultTone = {
   hybrid: 'border-hybrid-border bg-hybrid-dim text-hybrid shadow-[0_0_12px_rgba(47,158,68,0.3)]',
-  blocked: 'border-red-500/50 bg-red-950/50 text-red-400 shadow-[0_0_12px_rgba(239,68,68,0.3)]',
-  retry: 'border-amber-500/50 bg-amber-950/50 text-amber-400 shadow-[0_0_12px_rgba(245,158,11,0.3)]',
+  blocked: 'border-red-300 bg-red-50 text-red-800 shadow-[0_0_12px_rgba(239,68,68,0.22)]',
+  retry: 'border-amber-300 bg-amber-50 text-amber-800 shadow-[0_0_12px_rgba(245,158,11,0.22)]',
 }
 
 const statusTone = {
   ok: 'border-hybrid-border bg-hybrid-dim text-hybrid',
-  bad: 'border-red-500/60 bg-red-950/50 text-red-400',
-  warn: 'border-amber-500/60 bg-amber-950/50 text-amber-300',
+  bad: 'border-red-300 bg-red-50 text-red-800',
+  warn: 'border-amber-300 bg-amber-50 text-amber-800',
 }
 
 function StatusBoard({ board }) {
@@ -147,7 +147,7 @@ export default function FailureSimulator() {
 
             {scenario.timeline.slice(0, visibleCount).map((line, i) => (
               <div key={i} className="console-line animate-fade-slide-up">
-                <span className="text-white font-semibold text-xs sm:text-[13.5px]">{line.text}</span>
+                <span className="text-base-text font-semibold text-xs sm:text-[13.5px]">{line.text}</span>
                 <span className={`rounded border px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider ${tagMeta[line.tag].chip}`}>
                   {line.tag} → {line.note}
                 </span>
@@ -192,7 +192,7 @@ export default function FailureSimulator() {
                   <button
                     type="button"
                     onClick={() => setShowFailCase((v) => !v)}
-                    className="rounded-md border border-base-border bg-base-panel px-3 py-1 font-mono text-[11px] font-bold text-base-dim transition hover:text-white"
+                    className="rounded-md border border-base-border bg-base-panel px-3 py-1 font-mono text-[11px] font-bold text-base-dim transition hover:text-base-text"
                   >
                     {showFailCase ? '↩ VIEW PRIMARY OUTCOME' : `↗ ${scenario.confidenceFailure.label.toUpperCase()}`}
                   </button>
@@ -203,7 +203,7 @@ export default function FailureSimulator() {
                 <div className="rounded-xl border border-build-border/60 bg-build-dim/60 p-4 font-mono">
                   <div className="flex items-start gap-2">
                     <span className="text-base" aria-hidden="true">🚨</span>
-                    <p className="text-xs sm:text-sm font-bold text-white">{scenario.message}</p>
+                    <p className="text-xs sm:text-sm font-bold text-base-text">{scenario.message}</p>
                   </div>
                 </div>
               )}
@@ -229,7 +229,7 @@ export default function FailureSimulator() {
 
               <div className="rounded-xl border border-build-border/60 bg-build-dim/60 p-4 font-mono">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-build">ARCHITECTURE TAKEAWAY ::</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-white leading-relaxed">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-base-text leading-relaxed">
                   {scenario.takeaway}
                 </p>
               </div>

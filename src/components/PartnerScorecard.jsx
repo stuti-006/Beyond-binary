@@ -24,19 +24,19 @@ export default function PartnerScorecard() {
               <span className="font-mono text-[10px] font-bold text-partner">{String(i + 1).padStart(2, '0')}</span>
               <span className="font-mono h-1 w-1 rounded-full bg-partner" aria-hidden="true" />
             </div>
-            <h3 className="mt-2 font-display text-sm font-bold text-white">{d.name}</h3>
+            <h3 className="mt-2 font-display text-sm font-bold text-base-text">{d.name}</h3>
             <p className="mt-1.5 font-sans text-xs leading-relaxed text-base-dim">{d.prompt}</p>
           </div>
         ))}
 
-        <div className="flex flex-col rounded-xl border-2 border-red-500/60 bg-red-950/30 p-4 shadow-[0_0_15px_rgba(239,68,68,0.15)]">
-          <h3 className="flex items-center gap-2 font-display text-sm font-bold text-red-300">
+        <div className="flex flex-col rounded-xl border-2 border-red-300 bg-red-50 p-4 shadow-[0_0_15px_rgba(239,68,68,0.12)]">
+          <h3 className="flex items-center gap-2 font-display text-sm font-bold text-red-700">
             <span aria-hidden="true">🚩</span>RED FLAGS
           </h3>
           <ul className="mt-2.5 space-y-1.5">
             {redFlags.map((flag) => (
-              <li key={flag} className="flex items-start gap-2 font-sans text-xs leading-relaxed text-red-200">
-                <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-red-400" aria-hidden="true" />
+              <li key={flag} className="flex items-start gap-2 font-sans text-xs leading-relaxed text-red-700">
+                <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-red-500" aria-hidden="true" />
                 <span>{flag}</span>
               </li>
             ))}

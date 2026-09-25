@@ -9,7 +9,7 @@
 
 MochaTrade is a self-custodial, mobile-first perpetual futures trading platform designed for non-US retail traders — India-first, with UPI deposits, INR settlement, and no US brokerage requirement. 
 
-This repository is an interactive, local prototype built to demonstrate our core strategic thesis: **a live map of every system we build vs. rent, a real trade routing simulator, and an industrial vendor failure simulator.**
+This repository is an interactive, local prototype built to demonstrate our core strategic thesis: **a live map of every system we build vs. rent, a real trade routing simulator, and an industrial vendor failure simulator.** The interface is organized as a control center for evaluating ownership, partner risk, failure behavior, and the resulting architecture.
 
 ---
 
@@ -58,13 +58,21 @@ The prototype allows users to inject real-world failures into an active trade to
 
 ---
 
-## 🛠️ Section Navigation
+## 🛠️ Control Center Navigation
 
-The prototype includes a sticky section navigation bar for quick access across the story:
-1. 🗺️ **Infra Map**: Interactive node layout with cost, build time, and SLA tooltips.
-2. ⚡ **Trade Flow**: Real-time telemetry log tracing trade execution hops.
-3. 💥 **Failure Sim**: Interactive fault injector demonstrating adapter resilience.
-4. 📍 **Roadmap**: 12-month path from controlled alpha to scale, with re-evaluation gates.
+The prototype includes a persistent sidebar and responsive mobile navigation for the complete decision workflow:
+1. 🎯 **Decision Board**: Compare build, partner, and hybrid ownership choices.
+2. 🔌 **Control Architecture**: Inspect the adapter layer and control boundaries.
+3. ⚖️ **Scoring Matrix**: Weigh decisions against risk, cost, and strategic value.
+4. ⚡ **Trade Flow**: Trace trade execution hops through the system.
+5. 💥 **Failure Lab**: Inject vendor outages and observe safe failure behavior.
+6. 🛡️ **Ownership Matrix**: Clarify responsibility across core and partner systems.
+7. 📊 **Partner Scorecard**: Run a repeatable diligence review without invented scores.
+8. 🧪 **Scenario Lab**: Compare strategy choices under operating conditions.
+9. 🏛️ **Final Architecture**: Review the selected hybrid target state.
+10. 📍 **Roadmap**: Follow the path from controlled alpha to scale with re-evaluation gates.
+
+The visual language uses orange for systems MochaTrade builds, blue for rented partner capabilities, and green for hybrid controls owned through the adapter layer.
 
 ---
 
