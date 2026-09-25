@@ -13,14 +13,14 @@ const statusIcon = { ok: '✅', warn: '⚠️', error: '❌' }
 
 function TierBox({ heading, badgeClass, badgeLabel, items, accentClass }) {
   return (
-    <div className={`w-full rounded-2xl border-2 ${accentClass} bg-gradient-to-b from-[#141a24] to-[#0d1117] p-4 sm:p-5 shadow-2xl shadow-black/60`}>
+    <div className={`w-full rounded-2xl border-2 ${accentClass} bg-gradient-to-b from-base-card to-base-panel p-4 sm:p-5 shadow-[0_16px_32px_-22px_rgba(23,32,51,0.5)]`}>
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h3 className="font-display text-sm sm:text-base font-bold tracking-tight text-white">{heading}</h3>
+        <h3 className="font-display text-sm sm:text-base font-bold tracking-tight text-base-text">{heading}</h3>
         <span className={badgeClass}>{badgeLabel}</span>
       </div>
       <div className="mt-3 flex flex-wrap gap-1.5">
         {items.map((item) => (
-          <span key={item} className="rounded border border-slate-700 bg-slate-800/80 px-2 py-1 font-mono text-[10.5px] font-semibold text-slate-200">
+          <span key={item} className="rounded border border-base-border bg-base-surface px-2 py-1 font-mono text-[10.5px] font-semibold text-base-text">
             {item}
           </span>
         ))}
@@ -42,7 +42,7 @@ function FlowArrow({ label }) {
 function VendorChip({ vendor, state }) {
   const tone =
     state === 'failed'
-      ? 'border-red-500/60 bg-red-950/50 shadow-[0_0_12px_rgba(239,68,68,0.3)]'
+      ? 'border-red-400 bg-red-100 shadow-[0_0_12px_rgba(239,68,68,0.2)]'
       : state === 'active'
       ? 'border-hybrid bg-hybrid-dim shadow-[0_0_12px_rgba(47,158,68,0.3)]'
       : 'border-base-border bg-base-panel'
@@ -165,10 +165,10 @@ export default function ControlArchitecture() {
         </button>
 
         {(status === 'running' || status === 'done') && (
-          <div className="w-full max-w-2xl rounded-xl border border-base-border bg-[#05070a] p-4 font-mono shadow-inner" role="log" aria-live="polite">
+          <div className="w-full max-w-2xl rounded-xl border border-base-border bg-base-surface p-4 font-mono shadow-inner" role="log" aria-live="polite">
             {vendorSwapSteps.slice(0, visibleSteps).map((line, i) => (
               <div key={i} className="console-line animate-fade-slide-up">
-                <span className="text-white font-semibold text-xs sm:text-[13.5px]">{line.text}</span>
+                <span className="text-base-text font-semibold text-xs sm:text-[13.5px]">{line.text}</span>
                 <span className={`rounded border px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider ${tagMeta.CONTROL.chip}`}>
                   CONTROL → {line.note}
                 </span>
@@ -190,11 +190,11 @@ export default function ControlArchitecture() {
                 </span>
               ))}
             </div>
-            <div className="rounded-xl border-2 border-hybrid-border bg-gradient-to-r from-[#0b1b13] to-[#0d1117] p-5 text-center shadow-[0_0_20px_rgba(47,158,68,0.2)]">
-              <p className="font-display text-lg sm:text-xl font-extrabold tracking-tight text-white">
+            <div className="rounded-xl border-2 border-hybrid-border bg-hybrid-dim p-5 text-center shadow-[0_0_20px_rgba(47,158,68,0.16)]">
+              <p className="font-display text-lg sm:text-xl font-extrabold tracking-tight text-base-text">
                 {controlMessage}
               </p>
-              <p className="mt-1 font-mono text-xs text-slate-300">
+              <p className="mt-1 font-sans text-xs text-base-dim">
                 A vendor swap is a config change behind the control layer — never a rewrite of the core.
               </p>
             </div>

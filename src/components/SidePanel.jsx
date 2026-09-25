@@ -13,28 +13,28 @@ export default function SidePanel({ pages, active, onNavigate }) {
 
   return (
     <aside
-      className="fixed inset-y-0 left-0 z-50 hidden w-60 flex-col border-r border-base-border/80 bg-white lg:flex"
+      className="fixed inset-y-0 left-0 z-50 hidden w-64 flex-col border-r border-base-border bg-base-card lg:flex"
       aria-label="Primary navigation"
     >
       {/* Brand block */}
-      <div className="flex items-center gap-2.5 border-b border-base-border/70 px-4 py-4">
-        <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-build-border/50 bg-build-dim font-mono text-sm font-bold text-build shadow-glow-build">
+      <div className="border-b border-base-border px-5 py-5">
+        <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-build-border/60 bg-build-dim font-mono text-base font-bold text-build shadow-glow-build">
           ☕
         </div>
         <div className="leading-tight">
-          <p className="font-display text-sm font-bold tracking-tight text-base-text">MochaTrade</p>
-          <p className="font-mono text-[9px] font-semibold uppercase tracking-widest text-base-dim">
-            Own the Risk
-          </p>
+          <p className="font-display text-base font-bold tracking-tight text-base-text">MochaTrade</p>
+          <p className="mt-0.5 font-sans text-[9px] font-semibold uppercase tracking-[0.18em] text-base-dim">Control Center</p>
+        </div>
         </div>
       </div>
 
       {/* Nav grouped */}
-      <nav className="flex-1 overflow-y-auto px-3 py-4" aria-label="Sections">
-        {groups.map((g) => (
-          <div key={g.name} className="mb-5">
-            <div className="mb-1.5 px-1 font-mono text-[9px] font-bold uppercase tracking-widest text-base-dim">
-              {g.name} ::
+      <nav className="flex-1 overflow-y-auto px-3.5 py-5" aria-label="Sections">
+        {groups.map((g, groupIndex) => (
+          <div key={g.name} className={groupIndex === 0 ? 'mb-6' : 'mb-6 border-t border-base-border/70 pt-5'}>
+            <div className="mb-2 px-2 font-display text-[10px] font-bold uppercase tracking-[0.2em] text-base-muted">
+              {g.name}
             </div>
             <div className="space-y-0.5">
               {g.items.map((item) => {
@@ -46,16 +46,16 @@ export default function SidePanel({ pages, active, onNavigate }) {
                     type="button"
                     onClick={() => onNavigate(item.id)}
                     aria-current={isActive ? 'page' : undefined}
-                    className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left font-mono text-[11px] font-semibold transition ${
+                    className={`group flex w-full items-center gap-3 rounded-lg border-l-2 px-2.5 py-2 text-left font-sans text-xs font-semibold transition ${
                       isActive
-                        ? `${meta.dim} text-base-text shadow-sm`
-                        : 'text-base-dim hover:bg-base-panel/60 hover:text-base-text'
+                        ? `${meta.border} ${meta.dim} text-base-text shadow-sm`
+                        : 'border-transparent text-base-dim hover:border-base-border hover:bg-base-panel/70 hover:text-base-text'
                     }`}
                   >
-                    <span className="text-sm" aria-hidden="true">{item.icon}</span>
+                    <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md border text-sm transition ${isActive ? `${meta.dim} ${meta.border}` : 'border-transparent bg-base-panel/70 grayscale-[0.2] group-hover:border-base-border'}`} aria-hidden="true">{item.icon}</span>
                     <span className="flex-1 tracking-tight">{item.label}</span>
                     {isActive ? (
-                      <span className={meta.dot} aria-hidden="true" />
+                      <span className={`h-1.5 w-1.5 rounded-full ${meta.dot}`} aria-hidden="true" />
                     ) : (
                       <span className="h-1.5 w-1.5 rounded-full bg-base-muted/40" aria-hidden="true" />
                     )}
@@ -68,15 +68,23 @@ export default function SidePanel({ pages, active, onNavigate }) {
       </nav>
 
       {/* Status footer */}
-      <div className="border-t border-base-border/70 px-4 py-3">
-        <div className="flex items-center gap-2 font-mono text-[10px]">
-          <span className="h-2 w-2 rounded-full bg-hybrid animate-pulse" aria-hidden="true" />
-          <span className="font-bold uppercase tracking-wider text-base-text">Core :: Live</span>
+      <footer className="border-t border-base-border px-4 py-4">
+        <div className="rounded-lg border border-base-border bg-base-panel/70 px-3 py-3">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 font-sans text-[10px]">
+              <span className="h-2 w-2 rounded-full bg-hybrid shadow-[0_0_8px_rgba(46,139,114,0.45)]" aria-hidden="true" />
+              <span className="font-bold uppercase tracking-[0.14em] text-base-text">Core live</span>
+            </div>
+            <span className="font-mono text-[9px] font-bold uppercase tracking-wider text-base-muted">v1.0</span>
+          </div>
+          <div className="mt-2 border-t border-base-border/70 pt-2">
+            <p className="font-display text-[10px] font-bold uppercase tracking-[0.16em] text-base-text">MochaTrade Systems</p>
+            <p className="mt-1 font-sans text-[9px] leading-relaxed text-base-dim">
+              Own the risk. Rent the plumbing.
+            </p>
+          </div>
         </div>
-        <p className="mt-1.5 font-mono text-[9px] leading-relaxed text-base-dim">
-          Build the Moat. Rent the Plumbing.
-        </p>
-      </div>
+      </footer>
     </aside>
   )
 }
@@ -84,7 +92,7 @@ export default function SidePanel({ pages, active, onNavigate }) {
 export function MobileNav({ pages, active, onNavigate }) {
   return (
     <nav
-      className="lg:hidden overflow-x-auto whitespace-nowrap border-b border-base-border/80 bg-white/95 px-2 py-2 scrollbar-none"
+      className="lg:hidden overflow-x-auto whitespace-nowrap border-b border-base-border bg-base-card px-2 py-2 scrollbar-none"
       aria-label="Sections"
     >
       <div className="flex items-center gap-0.5">
@@ -97,8 +105,8 @@ export function MobileNav({ pages, active, onNavigate }) {
               type="button"
               onClick={() => onNavigate(item.id)}
               aria-current={isActive ? 'page' : undefined}
-              className={`flex shrink-0 items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-[11px] font-bold transition ${
-                isActive ? `${meta.dim} text-white` : 'text-base-dim hover:text-base-text'
+              className={`flex shrink-0 items-center gap-1.5 rounded-md border px-2.5 py-1.5 font-sans text-xs font-bold transition ${
+                isActive ? `${meta.dim} ${meta.border} text-base-text` : 'border-transparent text-base-dim hover:border-base-border hover:bg-base-panel hover:text-base-text'
               }`}
             >
               <span aria-hidden="true">{item.icon}</span>
